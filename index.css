@@ -1,0 +1,528 @@
+import React, { useState } from 'react';
+import profilePic from './perfil.jpg';
+
+export default function App() {
+  const [activeTab, setActiveTab] = useState('experience');
+
+  // Estilos CSS integrados para efectos modernos de hover, grids y badges
+  const styles = `
+    .portfolio-container {
+      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #2d3748;
+      background-color: #f7fafc;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+    }
+    .header-bg {
+      background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(235, 248, 255, 0.95)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 35px 20px; /* Reducido para que ocupe menos espacio vertical */
+      text-align: center;
+    }
+    .card {
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      border-left: 4px solid #3182ce;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(49, 130, 206, 0.15), 0 4px 6px -2px rgba(49, 130, 206, 0.1);
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .badge {
+      display: inline-block;
+      background-color: #ebf8ff;
+      color: #2b6cb0;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      align-self: flex-start;
+      border: 1px solid #bee3f8;
+    }
+    .nav-btn {
+      padding: 8px 20px; /* Botones ligeramente más compactos */
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    .nav-btn.active {
+      background-color: #3182ce;
+      color: #ffffff;
+      box-shadow: 0 4px 6px rgba(49, 130, 206, 0.3);
+    }
+    .nav-btn.inactive {
+      background-color: #edf2f7;
+      color: #4a5568;
+    }
+    .nav-btn.inactive:hover {
+      background-color: #e2e8f0;
+      color: #2b6cb0;
+    }
+    .link-text {
+      color: #3182ce;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-top: auto;
+      padding-top: 15px;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+    .link-text:hover {
+      color: #2b6cb0;
+      text-decoration: underline;
+    }
+  `;
+
+  return (
+    <div className="portfolio-container">
+      <style>{styles}</style>
+      
+      {/* Header with Profile Image & Building Background */}
+      <header className="header-bg">
+        <img 
+          src={profilePic} 
+          alt="Julio Flores Salvatierra" 
+          style={{ width: '110px', height: '110px', borderRadius: '50%', objectFit: 'cover', marginBottom: '15px', boxShadow: '0 10px 15px -3px rgba(49, 130, 206, 0.2)', border: '3px solid #ffffff' }}
+        />
+        <h1 style={{ fontSize: '2.4rem', margin: '0 0 5px 0', fontWeight: '700', color: '#1a202c', letterSpacing: '-0.025em' }}>
+          Julio Flores Salvatierra
+        </h1>
+        <h2 style={{ fontSize: '1.15rem', color: '#4a5568', fontWeight: '400', margin: '0' }}>
+          Economist | Ex-McKinsey | Private Sector Operations &amp; Public Policy Expert
+        </h2>
+        
+        {/* Navigation Tabs */}
+        <nav style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px', marginTop: '25px' }}>
+          <button 
+            onClick={() => setActiveTab('experience')}
+            className={`nav-btn ${activeTab === 'experience' ? 'active' : 'inactive'}`}
+          >
+            Experience
+          </button>
+          <button 
+            onClick={() => setActiveTab('publications')}
+            className={`nav-btn ${activeTab === 'publications' ? 'active' : 'inactive'}`}
+          >
+            Publications
+          </button>
+          <button 
+            onClick={() => setActiveTab('courses')}
+            className={`nav-btn ${activeTab === 'courses' ? 'active' : 'inactive'}`}
+          >
+            Training
+          </button>
+          <button 
+            onClick={() => setActiveTab('awards')}
+            className={`nav-btn ${activeTab === 'awards' ? 'active' : 'inactive'}`}
+          >
+            Awards &amp; Recognition
+          </button>
+          <button 
+            onClick={() => setActiveTab('education')}
+            className={`nav-btn ${activeTab === 'education' ? 'active' : 'inactive'}`}
+          >
+            Education
+          </button>
+          <button 
+            onClick={() => setActiveTab('contact')}
+            className={`nav-btn ${activeTab === 'contact' ? 'active' : 'inactive'}`}
+          >
+            Contact Information
+          </button>
+        </nav>
+      </header>
+
+      {/* Main Container */}
+      <main style={{ maxWidth: '900px', margin: '0 auto', padding: '50px 20px' }}>
+        
+        <section id="bio" style={{ marginBottom: '50px', textAlign: 'center', padding: '0 20px' }}>
+          <p style={{ fontSize: '1.15rem', color: '#4a5568', lineHeight: '1.7' }}>
+            Expert focused on identifying private sector opportunities, key regulatory reforms, public-private partnerships, and policy implementation strategies.
+          </p>
+        </section>
+
+        {/* TAB 1: EXPERIENCE */}
+        {activeTab === 'experience' && (
+          <section id="experience" style={{ marginBottom: '60px' }}>
+            <h3 style={{ fontSize: '1.75rem', color: '#1a202c', borderBottom: '2px solid #e2e8f0', paddingBottom: '12px', marginBottom: '30px', fontWeight: '700' }}>
+              Professional Experience
+            </h3>
+            
+            <div className="card">
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.25rem', color: '#2b6cb0' }}>Economist — International Finance Corporation (IFC)</h4>
+              <p style={{ margin: '0 0 15px 0', color: '#718096', fontSize: '0.95rem', fontWeight: '500' }}>July 2026 – Present | Washington, DC</p>
+              <p style={{ fontSize: '1.05rem', color: '#4a5568', margin: '0', lineHeight: '1.6', textAlign: 'justify' }}>
+                Directing the Country Private Sector Diagnostic (CPSD) to formulate actionable policy measures, including the Mexico Renewable Energy and Battery Energy Storage Deep Dive where I evaluate the updated 2025 legal framework, incorporating the expanded distributed generation to 0.7 MW and self-consumption up to 20 MW. Additionally, I spearhead solid waste management and circularity programs for Panamanian municipal associations and structure strategic reforms for the El Salvador Cold-Chain Storage and Transport CPSD to reduce costs and foster a regional logistics hub, alongside designing the first national cold-chain logistics survey.
+              </p>
+            </div>
+
+            <div className="card">
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.25rem', color: '#2b6cb0' }}>Associate Economist — International Finance Corporation (IFC)</h4>
+              <p style={{ margin: '0 0 15px 0', color: '#718096', fontSize: '0.95rem', fontWeight: '500' }}>December 2022 – July 2026 | Washington, DC</p>
+              <p style={{ fontSize: '1.05rem', color: '#4a5568', margin: '0', lineHeight: '1.6', textAlign: 'justify' }}>
+                Authored mitigation strategy briefs and sector roadmaps for hard-to-abate industries such as steel, cement, and aluminum across Latin America, Asia, and Emerging Europe. My role involved designing a cross-country methodology to evaluate mature investment opportunities in renewable energy and Battery Energy Storage Systems (BESS), leading plastic circularity analyses, and co-authoring CPSD 2.0 for infrastructure sectors in Nigeria and Paraguay, as well as creating an internal web platform utilizing Tableau dashboards to synthesize bespoke sector analyses.
+              </p>
+            </div>
+
+            <div className="card">
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.25rem', color: '#2b6cb0' }}>Knowledge Specialist at the Climate Unit — McKinsey &amp; Company</h4>
+              <p style={{ margin: '0 0 15px 0', color: '#718096', fontSize: '0.95rem', fontWeight: '500' }}>January 2022 – December 2022 | Washington, DC</p>
+              <p style={{ fontSize: '1.05rem', color: '#4a5568', margin: '0', lineHeight: '1.6', textAlign: 'justify' }}>
+                Led the development of strategies and prioritization methodologies for blue economy opportunities in aquaculture and plastic recycling, successfully generating a Blue Credit for Produbanco in Ecuador. I also spearheaded a decarbonization simulation to identify operational emission reductions within the built environment across the United States, Asia, and other international markets, while supporting Peru's private capital raising strategy to fulfill its Nationally Determined Contributions (NDC).
+              </p>
+            </div>
+
+            <div className="card">
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.25rem', color: '#2b6cb0' }}>Technical Advisor to the Executive Director — Private Investment Promotion Agency (Proinversi&oacute;n)</h4>
+              <p style={{ margin: '0 0 15px 0', color: '#718096', fontSize: '0.95rem', fontWeight: '500' }}>August 2021 – December 2021 | Lima, Peru</p>
+              <p style={{ fontSize: '1.05rem', color: '#4a5568', margin: '0', lineHeight: '1.6', textAlign: 'justify' }}>
+                Supported the creation of the Economic Studies Unit to rigorously evaluate the ex-post impact of Public-Private Partnership (PPP) projects. In this capacity, I coordinated the approval processes and evaluated the impact of 94 PPP projects valued at $34 billion across critical transport, education, and electricity sectors.
+              </p>
+            </div>
+
+            <div className="card">
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.25rem', color: '#2b6cb0' }}>Graduate Intern — Moody's Investor Service</h4>
+              <p style={{ margin: '0 0 15px 0', color: '#718096', fontSize: '0.95rem', fontWeight: '500' }}>June 2020 – July 2020 | Cambridge, MA</p>
+              <p style={{ fontSize: '1.05rem', color: '#4a5568', margin: '0', lineHeight: '1.6', textAlign: 'justify' }}>
+                Developed a specialized methodology to evaluate the impact of fiscal rules on government repayment capacity and led a comprehensive, independent outlook analysis for the U.S. restaurant industry.
+              </p>
+            </div>
+
+            <div className="card">
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.25rem', color: '#2b6cb0' }}>Principal Advisor on Infrastructure &amp; Sustainability — Ministry of Economy and Finance (MEF)</h4>
+              <p style={{ margin: '0 0 15px 0', color: '#718096', fontSize: '0.95rem', fontWeight: '500' }}>November 2017 – August 2019 | Lima, Peru</p>
+              <p style={{ fontSize: '1.05rem', color: '#4a5568', margin: '0', lineHeight: '1.6', textAlign: 'justify' }}>
+                Led the strategic development of the National Competitiveness Plan and Peru's foundational National Infrastructure Plan (PNIP). My work involved collaborating with sectoral roundtables to reduce regulatory red tape and create special fiscal frameworks in the Blue Economy and Biodiversity sectors, alongside successfully negotiating a pivotal agreement between rice and corn producers and the Executive Branch to prevent a massive regional strike.
+              </p>
+            </div>
+
+            <div className="card">
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.25rem', color: '#2b6cb0' }}>Macroeconomic Policy Director — Ministry of Economy and Finance (MEF)</h4>
+              <p style={{ margin: '0 0 15px 0', color: '#718096', fontSize: '0.95rem', fontWeight: '500' }}>March 2015 – October 2017 | Lima, Peru</p>
+              <p style={{ fontSize: '1.05rem', color: '#4a5568', margin: '0', lineHeight: '1.6', textAlign: 'justify' }}>
+                Directed a dedicated team in the preparation of the Multiannual Macroeconomic Framework (MMF) and the provision of macroeconomic policy recommendations. I collaborated heavily on policy measures to mitigate economic shocks, such as the 2017 Niño Phenomenon, using macroeconomic multiplier simulations, and served as Peru's official representative with Credit Rating Agencies to maintain stable ratings, notably participating in raising $4,360 million in Peruvian public debt.
+              </p>
+            </div>
+
+            <div className="card">
+              <h4 style={{ margin: '0 0 5px 0', fontSize: '1.25rem', color: '#2b6cb0' }}>Senior Economic Studies Analyst — APOYO Consulting Group</h4>
+              <p style={{ margin: '0 0 15px 0', color: '#718096', fontSize: '0.95rem', fontWeight: '500' }}>July 2011 – February 2015 | Lima, Peru</p>
+              <p style={{ fontSize: '1.05rem', color: '#4a5568', margin: '0', lineHeight: '1.6', textAlign: 'justify' }}>
+                Developed comprehensive short and long-term macroeconomic projections, preparing monthly reports with targeted policy recommendations for over 300 businesses. Furthermore, I participated in vital macroeconomic sustainability evaluations for the Canada Pension Plan Investment Board, generating a $600 million investment in oil and gas, and led high-impact demand studies for clients such as Aceros Arequipa and SABMiller Backus.
+              </p>
+            </div>
+          </section>
+        )}
+
+        {/* TAB 2: PUBLICATIONS */}
+        {activeTab === 'publications' && (
+          <section id="publications" style={{ marginBottom: '60px' }}>
+            <h3 style={{ fontSize: '1.75rem', color: '#1a202c', borderBottom: '2px solid #e2e8f0', paddingBottom: '12px', marginBottom: '30px', fontWeight: '700' }}>
+              Publications and Reports
+            </h3>
+            <div className="grid-container">
+              
+              <div className="card">
+                <span className="badge">2025</span>
+                <h4 style={{ margin: '0 0 10px 0', fontSize: '1.15rem', color: '#1a202c', lineHeight: '1.4' }}>The Run on Recycled Plastic</h4>
+                <p style={{ margin: '0 0 10px 0', color: '#718096', fontSize: '0.95rem' }}>International Finance Corporation (IFC)</p>
+                <a href="https://www.ifc.org/en/insights-reports/2025/the-run-on-recycled-plastic" target="_blank" rel="noreferrer" className="link-text">View Document &rarr;</a>
+              </div>
+
+              <div className="card">
+                <span className="badge">2025</span>
+                <h4 style={{ margin: '0 0 10px 0', fontSize: '1.15rem', color: '#1a202c', lineHeight: '1.4' }}>Nigeria: Country Private Sector Diagnostic</h4>
+                <p style={{ margin: '0 0 10px 0', color: '#718096', fontSize: '0.95rem' }}>International Finance Corporation (IFC)</p>
+                <a href="https://www.ifc.org/en/insights-reports/2025/nigeria-private-sector-diagnostic" target="_blank" rel="noreferrer" className="link-text">View Document &rarr;</a>
+              </div>
+
+              <div className="card">
+                <span className="badge">2025</span>
+                <h4 style={{ margin: '0 0 10px 0', fontSize: '1.15rem', color: '#1a202c', lineHeight: '1.4' }}>Introduction to the Malaysian Plastic Circularity Series</h4>
+                <p style={{ margin: '0 0 10px 0', color: '#718096', fontSize: '0.95rem' }}>World Bank Group</p>
+                <a href="https://documents1.worldbank.org/curated/en/099082525115529258/pdf/P176923-c31e9da4-27ab-4466-a557-2c27bc438e96.pdf" target="_blank" rel="noreferrer" className="link-text">View Document &rarr;</a>
+              </div>
+
+              <div className="card">
+                <span className="badge">2019</span>
+                <h4 style={{ margin: '0 0 10px 0', fontSize: '1.15rem', color: '#1a202c', lineHeight: '1.4' }}>Peru's National Infrastructure Plan</h4>
+                <p style={{ margin: '0 0 10px 0', color: '#718096', fontSize: '0.95rem' }}>Ministry of Economy and Finance</p>
+                <a href="#" className="link-text">View Document &rarr;</a>
+              </div>
+
+              <div className="card">
+                <span className="badge">2017</span>
+                <h4 style={{ margin: '0 0 10px 0', fontSize: '1.15rem', color: '#1a202c', lineHeight: '1.4' }}>Multiannual Macroeconomic Framework 2015-2019</h4>
+                <p style={{ margin: '0 0 10px 0', color: '#718096', fontSize: '0.95rem' }}>Ministry of Economy and Finance</p>
+                <a href="#" className="link-text">View Document &rarr;</a>
+              </div>
+
+              <div className="card">
+                <span className="badge">2017</span>
+                <h4 style={{ margin: '0 0 10px 0', fontSize: '1.15rem', color: '#1a202c', lineHeight: '1.4' }}>Business Environment and Informal Competition</h4>
+                <p style={{ margin: '0 0 10px 0', color: '#718096', fontSize: '0.95rem' }}>Peruvian Central Bank</p>
+                <a href="#" className="link-text">View Document &rarr;</a>
+              </div>
+
+            </div>
+          </section>
+        )}
+
+        {/* TAB 3: COURSES / TRAINING */}
+        {activeTab === 'courses' && (
+          <section id="courses" style={{ marginBottom: '60px' }}>
+            <h3 style={{ fontSize: '1.75rem', color: '#1a202c', borderBottom: '2px solid #e2e8f0', paddingBottom: '12px', marginBottom: '30px', fontWeight: '700' }}>
+              Certifications &amp; Specialized Courses
+            </h3>
+            <div className="grid-container">
+              
+              <div className="card">
+                <span className="badge">2025</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Climate Risk, Valuation and Investing Certificate</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Chartered Finance Analyst (CFA) Institute</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2024</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Project-Level GHG Accounting</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>GHG Management Institute</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2024</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Greenhouse Gas Protocol’s Corporate Standard Training</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Greenhouse Gas Protocol</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2024</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Sustainable Finance Certification</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Cambridge University</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2024</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Nature-Based Infrastructure Certification</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>International Institute for Sustainable Development</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2024</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>GHG Accounting 101</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>World Bank</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2024</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Gov 100 Governance and Climate Change</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>World Bank</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2023</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>The Carbon Market Bootcamp</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Sustainability 101</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2023</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>IFC Credit Investment Overview</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>IFC</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2022</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Sustainability 101</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>McKinsey &amp; Company</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2021</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Certificate in Management, Leadership and Decision Sciences</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Harvard University</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2020</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Behavioral Economics for Better Public Policies</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>IDB</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2020</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Behavioral Finance</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Duke University</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2020</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Excel Financial Modelling for Credit Analysis</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Moody's</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2020</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Data Science and Big Data Analytics</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>MIT</p>
+              </div>
+
+            </div>
+          </section>
+        )}
+
+        {/* TAB 4: AWARDS & RECOGNITION */}
+        {activeTab === 'awards' && (
+          <section id="awards" style={{ marginBottom: '60px' }}>
+            <h3 style={{ fontSize: '1.75rem', color: '#1a202c', borderBottom: '2px solid #e2e8f0', paddingBottom: '12px', marginBottom: '30px', fontWeight: '700' }}>
+              Awards &amp; Recognition
+            </h3>
+            <div className="grid-container">
+              
+              <div className="card">
+                <span className="badge">2024</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>IFC Performance Awards</h4>
+              </div>
+              <div className="card">
+                <span className="badge">2023</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>IFC Departmental Awards</h4>
+              </div>
+              <div className="card">
+                <span className="badge">2022</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Outstanding performance as Macroeconomic Teacher</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>UPC (Rank 2/50)</p>
+              </div>
+              <div className="card">
+                <span className="badge">2021</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Honorable Mention Master Thesis</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Harvard University</p>
+              </div>
+              <div className="card">
+                <span className="badge">2020</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Ash Center Winter Funding Award</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Second Year Policy Analysis</p>
+              </div>
+              <div className="card">
+                <span className="badge">2020</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>CPL Leadership Cohort</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Fall 2020</p>
+              </div>
+              <div className="card">
+                <span className="badge">2019</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Joint Japan/World Bank Graduate Scholarship</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>MPA/ID program</p>
+              </div>
+              <div className="card">
+                <span className="badge">2017</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>IDB Scholarship</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Specialization program in Columbia University</p>
+              </div>
+              <div className="card">
+                <span className="badge">2014</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Award for Outstanding Academic Performance</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Master's in Economic Theory at PUCP</p>
+              </div>
+              <div className="card">
+                <span className="badge">2012</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Award for Outstanding Work Performance</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>APOYO Consulting Group</p>
+              </div>
+              <div className="card">
+                <span className="badge">2011</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.1rem', color: '#1a202c' }}>Prima AFP Award</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '0.95rem' }}>Top of 2011 Economics Class</p>
+              </div>
+
+            </div>
+          </section>
+        )}
+
+        {/* TAB 5: EDUCATION */}
+        {activeTab === 'education' && (
+          <section id="education" style={{ marginBottom: '60px' }}>
+            <h3 style={{ fontSize: '1.75rem', color: '#1a202c', borderBottom: '2px solid #e2e8f0', paddingBottom: '12px', marginBottom: '30px', fontWeight: '700' }}>
+              Education
+            </h3>
+            <div className="grid-container">
+              
+              <div className="card">
+                <span className="badge">2019 - 2021</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.15rem', color: '#1a202c' }}>Master in Public Administration in International Development</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '1rem' }}>Harvard University</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2012 - 2013</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.15rem', color: '#1a202c' }}>Master in Economic Theory</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '1rem' }}>Pontificia Universidad Católica del Perú</p>
+              </div>
+
+              <div className="card">
+                <span className="badge">2006 - 2011</span>
+                <h4 style={{ margin: '0 0 5px 0', fontSize: '1.15rem', color: '#1a202c' }}>Bachelor in Economics</h4>
+                <p style={{ margin: '0', color: '#718096', fontSize: '1rem' }}>Pontificia Universidad Católica del Perú</p>
+              </div>
+
+            </div>
+          </section>
+        )}
+
+        {/* TAB 6: CONTACT INFORMATION */}
+        {activeTab === 'contact' && (
+          <section id="contact-info" style={{ marginBottom: '60px' }}>
+            <h3 style={{ fontSize: '1.75rem', color: '#1a202c', borderBottom: '2px solid #e2e8f0', paddingBottom: '12px', marginBottom: '30px', fontWeight: '700' }}>
+              Contact Information
+            </h3>
+            <div className="card" style={{ padding: '40px 20px', alignItems: 'center', textAlign: 'center' }}>
+              <p style={{ fontSize: '1.1rem', color: '#4a5568', marginBottom: '25px' }}>
+                Please feel free to reach out through any of the following professional channels:
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}>
+                <a href="mailto:jfloressalvatier@ifc.org" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#3182ce', textDecoration: 'none', fontSize: '1.15rem', fontWeight: '600' }}>
+                  <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  jfloressalvatier@ifc.org
+                </a>
+                
+                <span style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#4a5568', fontSize: '1.15rem', fontWeight: '500' }}>
+                  <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  WhatsApp: +1 202-7586-343
+                </span>
+                
+                <a href="https://www.linkedin.com/in/julio-flores-salvatierra-jfs2026" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#3182ce', textDecoration: 'none', fontSize: '1.15rem', fontWeight: '600' }}>
+                  <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  LinkedIn Profile
+                </a>
+              </div>
+            </div>
+          </section>
+        )}
+
+      </main>
+
+      {/* Footer Minimalista */}
+      <footer style={{ backgroundColor: '#1a202c', color: '#a0aec0', padding: '30px 20px', textAlign: 'center', borderTop: '1px solid #2d3748' }}>
+        <p style={{ margin: '0', fontSize: '0.9rem' }}>&copy; 2026 Julio Flores Salvatierra. All rights reserved.</p>
+      </footer>
+
+    </div>
+  );
+}
