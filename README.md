@@ -1,25 +1,7 @@
-{
-  "name": "vite-react-typescript-starter",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "oxlint",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7"
-  },
-  "devDependencies": {
-    "@types/node": "^24.13.3",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.3",
-    "oxlint": "^1.74.0",
-    "typescript": "~6.0.2",
-    "vite": "^8.1.5"
-  }
-}
+# floresjulio.com
+
+Personal portfolio of Julio Flores Salvatierra — React + Vite + TypeScript, deployed on Vercel.
+
+- Content (experience, publications, training, awards, education, contact) lives in the data lists at the top of `src/App.tsx`.
+- `npm run dev` for local preview · `npm run build` for a production build.
+- Every push to `main` deploys automatically to https://floresjulio.com via Vercel.

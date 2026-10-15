@@ -1,0 +1,5 @@
+/* Base reset — page styles live in App.tsx */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; background: #f6f8fb; color-scheme: light; }
+img { max-width: 100%; display: block; }
