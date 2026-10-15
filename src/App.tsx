@@ -106,7 +106,7 @@ const EXPERIENCE: Position[] = [
         period: 'November 2017 – August 2019',
         location: 'Lima, Peru',
         description:
-          "Led the development of the National Competitiveness Plan and Peru's foundational National Infrastructure Plan (PNIP). Worked with sectoral roundtables to reduce regulatory barriers and design special fiscal frameworks for the Blue Economy and Biodiversity sectors, and negotiated a pivotal agreement between rice and corn producers and the Executive Branch that averted a major regional strike.",
+          "Led the development of the National Competitiveness Plan and Peru's foundational National Infrastructure Plan for Competitiveness (PNIC). Worked with sectoral roundtables to reduce regulatory barriers and design special fiscal frameworks for the Blue Economy and Biodiversity sectors, and negotiated a pivotal agreement between rice and corn producers and the Executive Branch that averted a major regional strike.",
       },
       {
         title: 'Macroeconomic Policy Director',
@@ -142,7 +142,7 @@ const PUBLICATIONS: Item[] = [
   { year: '2025', title: 'The Run on Recycled Plastic', issuer: 'International Finance Corporation (IFC)', url: 'https://www.ifc.org/en/insights-reports/2025/the-run-on-recycled-plastic' },
   { year: '2025', title: 'Nigeria: Country Private Sector Diagnostic', issuer: 'International Finance Corporation (IFC)', url: 'https://www.ifc.org/en/insights-reports/2025/nigeria-private-sector-diagnostic' },
   { year: '2025', title: 'Introduction to the Malaysian Plastic Circularity Series', issuer: 'World Bank Group', url: 'https://documents1.worldbank.org/curated/en/099082525115529258/pdf/P176923-c31e9da4-27ab-4466-a557-2c27bc438e96.pdf' },
-  { year: '2019', title: "Peru's National Infrastructure Plan", issuer: 'Ministry of Economy and Finance' },
+  { year: '2019', title: 'National Infrastructure Plan for Competitiveness (PNIC)', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/inv_privada/planes/PNIC_2019.pdf' },
   { year: '2017', title: 'Multiannual Macroeconomic Framework 2018–2021', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2018_2021.pdf' },
   { year: '2017', title: 'Macroeconomic Projections Update Report 2017–2021', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/informe_actualizacion_proyecciones.pdf' },
   { year: '2017', title: 'Business Environment and Informal Competition', issuer: 'Central Reserve Bank of Peru' },
