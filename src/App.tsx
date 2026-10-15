@@ -7,12 +7,12 @@ import profilePic from './perfil.jpg';
 
 const NAME = 'Julio Flores Salvatierra';
 const HEADLINE = 'Economist, IFC – World Bank Group';
-const TAGLINE = 'Private Sector Development · PPPs · Infrastructure · Climate Strategy';
+const TAGLINE = 'Private Sector Development · Public Policies · Climate Strategy · Macroeconomics';
 const BIO =
   'Economist focused on unlocking private investment in emerging markets — identifying private sector opportunities, designing regulatory reforms, and structuring public-private partnerships across infrastructure, energy, and climate.';
 
 const CONTACT = {
-  email: 'jfloressalvatier@ifc.org',
+  email: 'jfloressalvatier@worldbankgroup.org',
   whatsappDisplay: '+1 (202) 758-6343',
   whatsappNumber: '12027586343', // solo dígitos, con código de país
   linkedin: 'https://www.linkedin.com/in/julio-flores-salvatierra-jfs2026',
@@ -144,12 +144,13 @@ const PUBLICATIONS: Item[] = [
   { year: '2019', title: "Peru's National Infrastructure Plan", issuer: 'Ministry of Economy and Finance' },
   { year: '2017', title: 'Multiannual Macroeconomic Framework 2018–2021', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2018_2021.pdf' },
   { year: '2017', title: 'Macroeconomic Projections Update Report 2017–2021', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/informe_actualizacion_proyecciones.pdf' },
-  { year: '2017', title: 'Multiannual Macroeconomic Framework 2015–2019', issuer: 'Ministry of Economy and Finance' },
   { year: '2017', title: 'Business Environment and Informal Competition', issuer: 'Central Reserve Bank of Peru' },
   { year: '2016', title: 'Revised Multiannual Macroeconomic Framework 2017–2019', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2017_2019_Revisado.pdf' },
+  { year: '2014', title: 'Multiannual Macroeconomic Framework 2015–2017', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2015_2017.pdf' },
 ];
 
 const TRAINING: Item[] = [
+  { year: '2026', title: 'Development Policy Financing (DPF) Accreditation', issuer: 'World Bank Group' },
   { year: '2026', title: 'Introduction to AI for Work Certificate', issuer: 'DataCamp' },
   { year: '2025', title: 'Climate Risk, Valuation and Investing Certificate', issuer: 'CFA Institute' },
   { year: '2024', title: 'Project-Level GHG Accounting', issuer: 'GHG Management Institute' },
