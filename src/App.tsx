@@ -15,7 +15,7 @@ const CONTACT = {
   email: 'jfloressalvatier@worldbankgroup.org',
   whatsappDisplay: '+1 (202) 758-6343',
   whatsappNumber: '12027586343', // solo dígitos, con código de país
-  linkedin: 'https://www.linkedin.com/in/julio-flores-salvatierra-jfs2026',
+  linkedin: 'https://www.linkedin.com/in/juliofloressalvatierra',
   orcid: 'https://orcid.org/0009-0003-0960-162X',
 };
 
