@@ -195,7 +195,7 @@ const EDUCATION: Item[] = [
 /* ------------------------------------------------------------------ */
 
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap');
 
   :root {
     --navy: #0f2a47;
@@ -224,48 +224,69 @@ const styles = `
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Header */
+  /* Header — navy gradient with dot grid; photo fades in from the right */
   .hero {
-    background:
-      linear-gradient(rgba(255,255,255,0.88), rgba(234,243,251,0.96)),
-      url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80') center / cover;
-    border-bottom: 1px solid var(--line);
-    padding: 48px 16px 0;
-    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(1100px 420px at 20% -10%, #1f4f80 0%, #0f2a47 55%, #0b1f36 100%);
   }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1.3px);
+    background-size: 18px 18px;
+    -webkit-mask-image: linear-gradient(#000, rgba(0,0,0,0.25));
+    mask-image: linear-gradient(#000, rgba(0,0,0,0.25));
+  }
+  .hero-photo {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 60%;
+    background: url('https://images.unsplash.com/photo-1672279410716-c676739163e9?auto=format&fit=crop&w=1600&q=70') center / cover;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.35) 22%, #000 55%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.35) 22%, #000 55%);
+  }
+  .hero-photo::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(11,31,54,0.05), rgba(11,31,54,0.35));
+  }
+  .hero-inner {
+    position: relative; z-index: 1;
+    max-width: 1040px; margin: 0 auto;
+    padding: 56px 24px 52px;
+  }
+  .hero-text { max-width: 560px; }
   .avatar {
-    width: 120px; height: 120px;
+    width: 112px; height: 112px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #fff;
-    box-shadow: 0 10px 25px -8px rgba(15,42,71,0.35);
+    box-shadow: 0 10px 25px -8px rgba(0,0,0,0.5);
     margin-bottom: 18px;
   }
   .hero h1 {
-    font-size: clamp(1.8rem, 5vw, 2.6rem);
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: -0.025em;
-    margin: 0 0 6px;
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
   }
-  .headline { font-size: clamp(1rem, 2.6vw, 1.2rem); font-weight: 600; color: var(--blue-dark); margin: 0 0 6px; }
-  .tagline { font-size: 0.98rem; color: var(--muted); margin: 0; }
+  .headline { font-size: clamp(1rem, 2.6vw, 1.2rem); font-weight: 600; color: #9cc7ec; margin: 0 0 8px; }
+  .tagline { font-size: 0.98rem; line-height: 1.55; color: #d3dde8; margin: 0; }
 
-  /* Tabs (sticky) */
+  /* Tabs (sticky navy bar under the header) */
   .tabs-wrap {
     position: sticky; top: 0; z-index: 10;
-    margin-top: 28px;
     padding: 12px 0;
-    background: rgba(246,248,251,0.92);
+    background: rgba(11,31,54,0.94);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border-top: 1px solid var(--line);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 6px 16px -10px rgba(11,31,54,0.6);
   }
   .tabs {
     display: flex; gap: 8px;
-    justify-content: center;
     flex-wrap: wrap;
-    max-width: 960px; margin: 0 auto; padding: 0 16px;
+    max-width: 1040px; margin: 0 auto; padding: 0 24px;
   }
   .tab {
     font: inherit;
@@ -273,18 +294,14 @@ const styles = `
     padding: 8px 18px;
     border-radius: 999px;
     border: 1px solid transparent;
-    background: #edf1f6;
-    color: var(--text);
+    background: rgba(255,255,255,0.1);
+    color: #e6eef6;
     cursor: pointer;
-    transition: background .2s, color .2s, box-shadow .2s;
+    transition: background .2s, color .2s;
   }
-  .tab:hover { background: var(--blue-soft); color: var(--blue-dark); }
-  .tab[aria-selected='true'] {
-    background: var(--blue);
-    color: #fff;
-    box-shadow: 0 4px 10px -2px rgba(31,111,178,0.4);
-  }
-  .tab:focus-visible { outline: 3px solid var(--blue-line); outline-offset: 2px; }
+  .tab:hover { background: rgba(255,255,255,0.18); color: #fff; }
+  .tab[aria-selected='true'] { background: #fff; color: var(--navy); }
+  .tab:focus-visible { outline: 3px solid #9cc7ec; outline-offset: 2px; }
 
   /* Layout */
   main { width: 100%; max-width: 920px; margin: 0 auto; padding: 44px 16px 64px; flex: 1; }
@@ -380,8 +397,9 @@ const styles = `
   footer p { margin: 0; }
 
   @media (max-width: 600px) {
-    .hero { padding-top: 36px; }
-    .tabs { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scrollbar-width: none; }
+    .hero-photo { width: 100%; opacity: 0.3; -webkit-mask-image: none; mask-image: none; }
+    .hero-inner { padding: 40px 16px 36px; }
+    .tabs { padding: 0 16px; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scrollbar-width: none; }
     .tabs::-webkit-scrollbar { display: none; }
     .tab { flex: 0 0 auto; }
     .card { padding: 20px; }
@@ -472,31 +490,36 @@ export default function App() {
       <style>{styles}</style>
 
       <header className="hero">
-        <img className="avatar" src={profilePic} alt={NAME} width={120} height={120} />
-        <h1>{NAME}</h1>
-        <p className="headline">{HEADLINE}</p>
-        <p className="tagline">{TAGLINE}</p>
-
-        <div className="tabs-wrap">
-          <nav className="tabs" role="tablist" aria-label="Portfolio sections">
-            {TABS.map((tab, i) => (
-              <button
-                key={tab.id}
-                id={`tab-${tab.id}`}
-                className="tab"
-                role="tab"
-                aria-selected={activeTab === tab.id}
-                aria-controls={`panel-${tab.id}`}
-                tabIndex={activeTab === tab.id ? 0 : -1}
-                onClick={() => selectTab(tab.id)}
-                onKeyDown={(e) => onTabKeyDown(e, i)}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </nav>
+        <div className="hero-photo" aria-hidden="true" />
+        <div className="hero-inner">
+          <div className="hero-text">
+            <img className="avatar" src={profilePic} alt={NAME} width={112} height={112} />
+            <h1>{NAME}</h1>
+            <p className="headline">{HEADLINE}</p>
+            <p className="tagline">{TAGLINE}</p>
+          </div>
         </div>
       </header>
+
+      <div className="tabs-wrap">
+        <nav className="tabs" role="tablist" aria-label="Portfolio sections">
+          {TABS.map((tab, i) => (
+            <button
+              key={tab.id}
+              id={`tab-${tab.id}`}
+              className="tab"
+              role="tab"
+              aria-selected={activeTab === tab.id}
+              aria-controls={`panel-${tab.id}`}
+              tabIndex={activeTab === tab.id ? 0 : -1}
+              onClick={() => selectTab(tab.id)}
+              onKeyDown={(e) => onTabKeyDown(e, i)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </nav>
+      </div>
 
       <main>
         <p className="bio">{BIO}</p>
