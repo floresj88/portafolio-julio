@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /propuestas/
+
+Sitemap: https://floresjulio.com/sitemap.xml
