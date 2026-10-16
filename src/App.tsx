@@ -143,20 +143,21 @@ const PUBLICATIONS: Item[] = [
   { year: '2025', title: 'Nigeria: Country Private Sector Diagnostic', issuer: 'International Finance Corporation (IFC)', url: 'https://www.ifc.org/en/insights-reports/2025/nigeria-private-sector-diagnostic' },
   { year: '2025', title: 'Introduction to the Malaysian Plastic Circularity Series', issuer: 'World Bank Group', url: 'https://documents1.worldbank.org/curated/en/099082525115529258/pdf/P176923-c31e9da4-27ab-4466-a557-2c27bc438e96.pdf' },
   { year: '2019', title: 'National Infrastructure Plan for Competitiveness (PNIC)', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/inv_privada/planes/PNIC_2019.pdf' },
+  { year: '2018', title: 'National Competitiveness and Productivity Policy', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/archivos-descarga/Politica_Nacional_de_Competitividad_y_Productividad.pdf' },
   { year: '2017', title: 'Multiannual Macroeconomic Framework 2018–2021', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2018_2021.pdf' },
   { year: '2017', title: 'Macroeconomic Projections Update Report 2017–2021', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/informe_actualizacion_proyecciones.pdf' },
   { year: '2017', title: 'Business Environment and Informal Competition', issuer: 'Central Reserve Bank of Peru' },
   { year: '2016', title: 'Revised Multiannual Macroeconomic Framework 2017–2019', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2017_2019_Revisado.pdf' },
+  { year: '2016', title: 'Multiannual Macroeconomic Framework 2017–2019', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2017_2019.pdf' },
+  { year: '2015', title: 'Revised Multiannual Macroeconomic Framework 2016–2018', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2016_2018_Revisado.pdf' },
   { year: '2014', title: 'Multiannual Macroeconomic Framework 2015–2017', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2015_2017.pdf' },
 ];
 
 const TRAINING: Item[] = [
   { year: '2026', title: 'Development Policy Financing (DPF) Accreditation', issuer: 'World Bank Group' },
   { year: '2026', title: 'Introduction to AI for Work Certificate', issuer: 'DataCamp' },
-  { year: '2025', title: 'Climate Risk, Valuation and Investing Certificate', issuer: 'CFA Institute' },
   { year: '2024', title: 'Project-Level GHG Accounting', issuer: 'GHG Management Institute' },
   { year: '2024', title: "Greenhouse Gas Protocol's Corporate Standard Training", issuer: 'Greenhouse Gas Protocol' },
-  { year: '2024', title: 'Sustainable Finance Certification', issuer: 'University of Cambridge' },
   { year: '2024', title: 'Nature-Based Infrastructure Certification', issuer: 'International Institute for Sustainable Development (IISD)' },
   { year: '2024', title: 'GHG Accounting 101', issuer: 'World Bank' },
   { year: '2024', title: 'Gov 100: Governance and Climate Change', issuer: 'World Bank' },
@@ -185,6 +186,7 @@ const AWARDS: Item[] = [
 ];
 
 const EDUCATION: Item[] = [
+  { year: '2024', title: 'Sustainable Finance Certification', issuer: 'University of Cambridge' },
   { year: '2019 – 2021', title: 'Master in Public Administration in International Development (MPA/ID)', issuer: 'Harvard University' },
   { year: '2017', title: 'Executive Program on Macro-Financial Policymaking', issuer: 'Columbia University' },
   { year: '2012 – 2013', title: 'Master in Economic Theory', issuer: 'Pontificia Universidad Católica del Perú' },
