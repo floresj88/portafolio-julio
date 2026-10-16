@@ -150,7 +150,6 @@ const PUBLICATIONS: Item[] = [
   { year: '2016', title: 'Revised Multiannual Macroeconomic Framework 2017–2019', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2017_2019_Revisado.pdf' },
   { year: '2016', title: 'Multiannual Macroeconomic Framework 2017–2019', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2017_2019.pdf' },
   { year: '2015', title: 'Revised Multiannual Macroeconomic Framework 2016–2018', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2016_2018_Revisado.pdf' },
-  { year: '2014', title: 'Multiannual Macroeconomic Framework 2015–2017', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2015_2017.pdf' },
 ];
 
 const TRAINING: Item[] = [
@@ -172,6 +171,7 @@ const TRAINING: Item[] = [
 ];
 
 const AWARDS: Item[] = [
+  { year: '2026', title: 'Progression: Associate Economist to Economist', issuer: 'World Bank Group' },
   { year: '2024', title: 'IFC Performance Award', issuer: 'International Finance Corporation' },
   { year: '2023', title: 'IFC Departmental Award', issuer: 'International Finance Corporation' },
   { year: '2022', title: 'Outstanding Performance as Macroeconomics Lecturer', issuer: 'UPC (ranked 2 of 50)' },
