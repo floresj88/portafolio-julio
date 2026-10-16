@@ -150,6 +150,8 @@ const PUBLICATIONS: Item[] = [
   { year: '2016', title: 'Revised Multiannual Macroeconomic Framework 2017–2019', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2017_2019_Revisado.pdf' },
   { year: '2016', title: 'Multiannual Macroeconomic Framework 2017–2019', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2017_2019.pdf' },
   { year: '2015', title: 'Revised Multiannual Macroeconomic Framework 2016–2018', issuer: 'Ministry of Economy and Finance, Peru', url: 'https://www.mef.gob.pe/contenidos/pol_econ/marco_macro/MMM_2016_2018_Revisado.pdf' },
+  { year: '2014', title: 'A Dynamic Factor Model with Expectations Applied to a Leading Indicator for Private Investment', issuer: "Master's thesis, Pontificia Universidad Católica del Perú", url: 'http://hdl.handle.net/20.500.12404/5861' },
+  { year: '2013', title: 'The Consumer Confidence Index and Short-Term Private Consumption Forecasting in Peru', issuer: 'Central Reserve Bank of Peru, Working Paper 2013-004 (with L. Cuenca and D. Morales)', url: 'https://www.bcrp.gob.pe/docs/Publicaciones/Documentos-de-Trabajo/2013/documento-de-trabajo-04-2013.pdf' },
 ];
 
 const TRAINING: Item[] = [
